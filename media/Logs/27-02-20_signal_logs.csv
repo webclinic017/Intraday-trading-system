@@ -1,0 +1,13 @@
+Symbol,timestamp,ExitSignal,ExitCondition,ClosePrice,PreviousCandle_SMALow_as_stoploss,PreviousCandle_SMAHigh_as_stoploss,Low_as_stoploss,High_as_stoploss
+BANDHANBN,27-02-20 12:10:01,SHORTEXIT,Short Exit Due to closing price breaching the SMA High,395.3,394.7,395.08749999999986,395.45,396.5
+MARICO,27-02-20 12:15:00,SHORTEXIT,Short Exit Due to closing price breaching the SMA High,305.75,305.8350000000001,305.7275,305.6,306.6
+DMART,27-02-20 12:15:03,SHORTEXIT,Short Exit Due to closing price breaching the SMA High,2339.0,2336.7725,2337.345,2341.1,2351.0
+AUROPHARM,27-02-20 12:15:05,SHORTEXIT,Short Exit Due to closing price breaching the SMA High,517.75,513.2475,513.6524999999998,518.8,521.0
+PIDILITIN,27-02-20 12:15:06,SHORTEXIT,Short Exit Due to closing price breaching the SMA High,1550.5,1548.2999999999995,1550.0375,1549.95,1554.4
+IBULHSGFI,27-02-20 12:25:01,SHORTEXIT,Short Exit Due to closing price breaching the High captured candle,312.7,312.6475000000001,313.215,311.85,312.5
+CADILAHC,27-02-20 12:30:00,SHORTEXIT,Short Exit Due to closing price breaching the SMA High,258.35,257.5225,257.965,257.4,257.95
+MCDOWELL-,27-02-20 12:30:03,SHORTEXIT,Short Exit Due to closing price breaching the High captured candle,680.35,679.4900000000001,680.4825,678.2,679.75
+LTFH,27-02-20 12:55:00,SHORTEXIT,Short Exit Due to closing price breaching the High captured candle,112.55,112.26000000000002,112.57499999999996,112.0,112.3
+PEL,27-02-20 13:05:01,SHORTEXIT,Short Exit Due to closing price breaching the High captured candle,1396.8,1391.8649999999993,1396.9450000000006,1390.05,1394.15
+HINDPETRO,27-02-20 13:25:04,SHORTEXIT,Short Exit Due to closing price breaching the SMA High,207.2,206.4025000000001,207.01999999999958,207.1,207.5
+BANKBAROD,27-02-20 13:50:01,SHORTEXIT,Short Exit Due to closing price breaching the SMA High,78.1,77.66999999999999,77.95249999999999,78.3,78.55

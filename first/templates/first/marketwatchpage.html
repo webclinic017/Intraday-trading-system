@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" rel="stylesheet"/>
+
+
+</head>
+
+<body>
+
+	<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<script type="text/javascript">
+		function display_c(){
+		var refresh=1000; // Refresh rate in milli seconds
+		mytime=setTimeout('display_ct()',refresh)
+		}
+
+		function display_ct() {
+		var x = new Date()
+		document.getElementById('ct').innerHTML = x;
+		display_c();
+		 }
+	</script>
+
+	<style>
+
+	#items{
+		overflow-x: scroll;
+		width: 1500px;
+		white-space: nowrap;
+	}
+
+
+	table {
+	   border-collapse: collapse;
+	   float: left;
+	   margin-left: 20px
+
+	}
+
+	td    {padding: 3px;}
+
+
+	</style>
+
+	<body onload="display_ct();">
+	<span id='ct' ></span>
+
+	<h1>&nbsp&nbspStock Market Watch</h1>
+	<br/>
+
+	<div id="output_box_screener"></div>
+
+	<script>
+	$(document).ready(function() {
+	  $.ajaxSetup({ cache: false }); // This part addresses an IE bug.  without it, IE will only load the first number and will never refresh
+	   var my_refresh = setInterval(function() {
+		$('#output_box_screener').load('/first/screener_only');
+	  }, 5000); // the "1000"
+	});
+
+	</script>
+	<script>
+
+		function mainDataBase(clicked_id){
+
+		    var addscreener= confirm("Do you really want to Remove the Stock " +clicked_id+"?");
+
+			if (addscreener== true){
+				var params = "";
+					params += clicked_id + "$$";
+
+					var xhttp = new XMLHttpRequest();
+					xhttp.onreadystatechange = function() {
+						if (this.readyState == 4 && this.status == 200) {
+								var data = JSON.parse(this.responseText);
+								if(parseInt(data.error) == 0){
+									message = "Added to Screener successfully.";
+
+								} else {
+									message = "Error in adding stock. Try again.";
+								}
+
+							}
+						};
+					xhttp.open("GET", "http://127.0.0.1:8000/first/removeStock_maindatabase?" + params, true);
+					xhttp.send();
+					alert(clicked_id +" Removed Successfully");
+
+					$(document).ready(function() {
+					$.ajaxSetup({ cache: false }); // This part addresses an IE bug.  without it, IE will only load the first number and will never refresh
+					   var my_refresh = setInterval(function() {
+						$('#output_box_screener').load('/first/screener_only');}, 5000); // the "1000" -->
+					});
+
+				}
+			else {
+					alert("Removal of Stock  "+clicked_id+" is Cancelled.");
+
+				}
+
+		}
+
+
+		function updateDataBase(clicked_id){
+
+			var params = "";
+
+
+						var timeframe = prompt("Please enter Timeframe for "+clicked_id, "Time Frame");
+						if (timeframe != null) {
+							var Numberoflot = prompt("Please enter no_of_lot for "+clicked_id, "No of Lot");
+							if (Numberoflot != null) {
+								var quantity = prompt("Please enter quantity for "+clicked_id, "Quantity");
+									if (quantity != null){
+												var params = "";
+													params += clicked_id +"*"+ timeframe +"*"+ Numberoflot +"*"+ quantity +"$$";
+
+													var xhttp = new XMLHttpRequest();
+													xhttp.onreadystatechange = function() {
+														if (this.readyState == 4 && this.status == 200) {
+																var data = JSON.parse(this.responseText);
+																if(parseInt(data.error) == 0){
+																	message = "Stocks Detail updated successfully.";
+
+																} else {
+																	message = "Error in Updation stock. Try again.";
+																}
+
+															}
+														};
+													xhttp.open("GET", "http://127.0.0.1:8000/first/update_maindatabase?" + params, true);
+													xhttp.send();
+													alert(clicked_id +" Detail updated Successfully");
+
+													$(document).ready(function() {
+													$.ajaxSetup({ cache: false }); // This part addresses an IE bug.  without it, IE will only load the first number and will never refresh
+													   var my_refresh = setInterval(function() {
+														$('#output_box_screener').load('/first/screener_only');
+													   }, 5000); // the "1000"
+													});
+
+											}else {
+													alert("Updation of Stock  "+clicked_id+" is Cancelled.");
+												}
+									}else {
+											alert("Updation of Stock  "+clicked_id+" is Cancelled.");
+										}
+							}else {
+								alert("Updation of Stock  "+clicked_id+" is Cancelled.");
+								}
+
+
+		}
+
+
+	</script>
+</body>
+</html>

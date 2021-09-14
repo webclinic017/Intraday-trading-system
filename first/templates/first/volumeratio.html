@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css" rel="stylesheet"/>
+
+
+</head>
+
+<body>
+
+	<br/>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	<script type="text/javascript">
+		function display_c(){
+		var refresh=1000; // Refresh rate in milli seconds
+		mytime=setTimeout('display_ct()',refresh)
+		}
+
+		function display_ct() {
+		var x = new Date()
+		document.getElementById('ct').innerHTML = x;
+		display_c();
+		 }
+	</script>
+
+	<style>
+
+	#items{
+		overflow-x: scroll;
+		width: 1500px;
+		white-space: nowrap;
+	}
+
+
+	table {
+	   border-collapse: collapse;
+	   float: left;
+	   margin-left: 20px
+
+	}
+
+	td    {padding: 15px;}
+
+
+	</style>
+
+	<body onload="display_ct();">
+	<span id='ct' ></span>
+
+	<h1>&nbsp&nbspStock Volume Ratio</h1>
+	<br/>
+
+	<div id="screener"></div>
+
+	<script>
+	$(document).ready(function() {
+	  $.ajaxSetup({ cache: false }); // This part addresses an IE bug.  without it, IE will only load the first number and will never refresh
+	   var my_refresh = setInterval(function() {
+		$('#screener').load('/first/screener_only_topgainer');
+	  }, 5000); // the "1000"
+	});
+
+	</script>
+
+</body>
+</html>

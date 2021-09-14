@@ -1,0 +1,5 @@
+Symbol,timestamp,ExitSignal,ExitCondition,ClosePrice,PreviousCandle_SMALow_as_stoploss,PreviousCandle_SMAHigh_as_stoploss,Low_as_stoploss,High_as_stoploss
+PAGEIND,28-02-20 11:45:01,SHORTEXIT,Short Exit Due to closing price breaching the High captured candle,21255.45,22045.557499999995,22114.735,21313.15,21251.25
+BERGEPAIN,28-02-20 11:50:00,SHORTEXIT,Short Exit Due to closing price breaching the High captured candle,562.65,571.845,573.62,561.4,561.6
+DIVISLAB,28-02-20 12:00:00,SHORTEXIT,Short Exit Due to closing price breaching the High captured candle,2119.05,2141.5675,2147.4799999999987,2110.1,2115.45
+SRTRANSFI,28-02-20 13:30:00,SHORTEXIT,Short Exit Due to closing price breaching the SMA High,1229.0,1220.42,1224.6825000000003,1225.55,1231.8
